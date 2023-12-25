@@ -6,6 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const message = document.getElementById("message");
     var counter = 1;
     var shuffledOrder = [1,2,3,4,5]
+    initialDisplayCards(shuffledOrder)
+    function initialDisplayCards(){
+        gameSection.innerHTML = "";
+
+        for (let i = 0; i < 5; i++) {
+            let divCard = document.createElement("div");
+            divCard.classList.add("card");
+            divCard.style.backgroundImage = `url('letters/${shuffledOrder[i]}.svg')`; 
+            divCard.alt = `Card ${i}`;
+            divCard.setAttribute("index",i);
+            gameSection.appendChild(divCard);
+        }
+    }
     function startGame() 
     {
         console.log("Butona Tıklandı");
